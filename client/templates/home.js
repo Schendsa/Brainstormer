@@ -7,3 +7,9 @@ Template.home.helpers({
 		return Lobbies.find();
 	}
 });
+
+Template.home.events({
+	"click .delete": function () {
+		Meteor.call("deleteLobby", this._id);
+	}
+});
