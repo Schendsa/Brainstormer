@@ -8,5 +8,12 @@ Meteor.methods({
 
 	deleteLobby: function (lobbyId) {
 		Lobbies.remove(lobbyId);
+	},
+
+	newIdea: function (ideaName, listId) {
+		Idea.insert({
+			name: ideaName,
+			listId: listId
+		});
 	}
 });
