@@ -1,6 +1,6 @@
 Meteor.publish('lobbies', function() {
-  return Lobbies.find();
+	return Lobbies.find();
 });
-Meteor.publish('idea', function() {
-	return Idea.find();
+Meteor.publish('ideas', function() {
+	return Ideas.find();
 });

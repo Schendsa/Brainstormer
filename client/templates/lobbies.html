@@ -1,3 +1,9 @@
 <template name="lobbies">
+	<form class="newIdea">
+		<input type="text" name="text" placeholder="Type to add a new idea" />
+	</form><br>
 	{{name}}
+	{{#each ideas}}
+		<li>{{name}}</li>
+	{{/each}}
 </template>

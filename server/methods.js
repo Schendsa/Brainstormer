@@ -10,10 +10,10 @@ Meteor.methods({
 		Lobbies.remove(lobbyId);
 	},
 
-	newIdea: function (ideaName, listId) {
-		Idea.insert({
+	newIdea: function (ideaName, lobbyId) {
+		Ideas.insert({
 			name: ideaName,
-			listId: listId
+			lobbyId: lobbyId
 		});
 	}
 });
