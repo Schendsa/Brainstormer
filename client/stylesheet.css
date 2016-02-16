@@ -1,4 +1,9 @@
 /* CSS declarations go here */
+* {
+  margin: 0;
+  padding: 0;
+}
+
 body {
   font-family: sans-serif;
   background-color: #315481;
@@ -10,9 +15,6 @@ body {
   bottom: 0;
   left: 0;
   right: 0;
-
-  padding: 0;
-  margin: 0;
 
   font-size: 14px;
 }
@@ -27,7 +29,7 @@ body {
 header {
   background: #d2edf4;
   background-image: linear-gradient(to bottom, #d0edf5, #e1e5f0 100%);
-  padding: 20px 15px 15px 15px;
+  padding: 20px 15px 0px 15px;
   position: relative;
 }
 
@@ -128,4 +130,41 @@ header .hide-completed {
 .title {
   color: black;
   text-decoration: none;
+}
+
+.create-lobby-page {
+  width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.create-lobby-page input {
+  width: 400px;
+  outline: none;
+  border: none;
+  padding: 10px;
+}
+
+.create-lobby-page input[type=text] {
+  background-color: #cce6ff;
+  margin-bottom: 1px;
+}
+
+.create-lobby-page input[type=submit] {
+  width: 420px;
+  margin-top: 10px;
+}
+
+.create-lobby-button {
+  border: none;
+  outline: none;
+  background: none;
+  border-left: 1px solid #918e82;
+  border-right: 1px solid #918e82;
+}
+
+.create-lobby-button a {
+  text-decoration: none;
+  color: black;
+  padding: 10px;
 }
