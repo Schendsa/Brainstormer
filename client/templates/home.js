@@ -9,7 +9,5 @@ Template.home.helpers({
 });
 
 Template.home.events({
-	"click .delete": function () {
-		Meteor.call("deleteLobby", this._id);
-	}
+
 });

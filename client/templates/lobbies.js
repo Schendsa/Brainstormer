@@ -1,11 +1,14 @@
 Template.lobbies.helpers({
 	ideas: function() {
 		return Ideas.find({lobbyId: this.lobby._id});
-	}
+	},
+  lobbyname: function() {
+    return this.lobby.name;
+  }
 });
 
 Template.lobbies.events({
-  "submit .newIdea": function (event) {
+  "submit .new-idea": function (event) {
     event.preventDefault();
 
     var name = event.target.text.value;
@@ -14,5 +17,40 @@ Template.lobbies.events({
     Meteor.call("newIdea", name, lobbyId);
 
     event.target.text.value = "";
+  },
+
+  "click .lobby-name": function (event) {
+    if (Meteor.userId() != this.lobby.userId) {
+      throw new Meteor.Error("not-authorized");
+    } else {
+      var lobbytitle = document.getElementsByName("lobbytitle");
+      lobbytitle[0].disabled = false;
+    }
+    
+  },
+
+  "submit .lobby-name": function (event) {
+    if (Meteor.userId() != this.lobby.userId) {
+      throw new Meteor.Error("not-authorized");
+    } else {
+      event.preventDefault();
+
+      var newtitle = event.target.lobbytitle.value;
+
+      Meteor.call("renameLobby", newtitle, this.lobby._id);
+
+      var lobbytitle = document.getElementsByName("lobbytitle");
+      lobbytitle[0].disabled = true;
+    }
+  },
+
+  "click .delete": function (event) {
+    if (Meteor.userId() != this.lobby.userId) {
+      throw new Meteor.Error("not-authorized");
+    } else {
+      Meteor.call("deleteLobby", this.lobby._id);
+      
+      Router.go('home');
+    }
   }
 });

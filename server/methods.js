@@ -1,6 +1,7 @@
 Meteor.methods({
-	newLobby: function (lobbyName, lobbyPassword) {
+	newLobby: function (userId, lobbyName, lobbyPassword) {
 		Lobbies.insert({
+			userId: userId,
 			name: lobbyName,
 			password: lobbyPassword
 		});
@@ -14,6 +15,12 @@ Meteor.methods({
 		Ideas.insert({
 			name: ideaName,
 			lobbyId: lobbyId
+		});
+	},
+
+	renameLobby: function(newTitle, lobbyId) {
+		Lobbies.update(lobbyId, {
+			$set: {name: newTitle}
 		});
 	}
 });
