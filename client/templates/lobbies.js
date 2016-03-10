@@ -49,7 +49,7 @@ Template.lobbies.events({
       throw new Meteor.Error("not-authorized");
     } else {
       Meteor.call("deleteLobby", this.lobby._id);
-      
+
       Router.go('home');
     }
   }
