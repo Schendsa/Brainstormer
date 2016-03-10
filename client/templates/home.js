@@ -5,11 +5,21 @@ if (Meteor.isClient) {
 Template.home.helpers({
 	lobbies: function() {
 		return Lobbies.find();
-	}
+	} 
 });
 
 Template.home.events({
 	"click .delete": function () {
-		Meteor.call("deleteLobby", this._id);
+		if (confirm("Are you sure you want to delete this lobby?") == true) {
+        	Meteor.call("deleteLobby", this._id);
+    	}
+	},
+
+	"click .checkaccess": function () {
+		if (this._id == NULL) {
+			console.log("swag");
+		} else {
+			var submitpassword = prompt("Please enter the password for this lobby");
+		}
 	}
 });

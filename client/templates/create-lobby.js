@@ -4,8 +4,19 @@ Template.createLobby.events({
 
 		var name = event.target.name.value;
 		var password = event.target.password.value;
+		
+		var checkprivacy = document.getElementById("privatelobby").checked;
 
-		Meteor.call("newLobby", name, password);
+		if(checkprivacy)
+      	{
+         var privatelobby = 1;
+      	} else {
+      	 var privatelobby = 0;
+      	}
+
+		console.log(privatelobby);
+
+		Meteor.call("newLobby", name, password, privatelobby);
 
 		Router.go('home');
 	}
