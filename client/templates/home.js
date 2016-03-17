@@ -4,11 +4,12 @@ if (Meteor.isClient) {
 
 Template.home.helpers({
 	lobbies: function() {
-		return Lobbies.find();
+		return Lobbies.find( { privacy: 0 } );
 	} 
 });
 
 Template.home.events({
+
 	"click .delete": function () {
 		if (confirm("Are you sure you want to delete this lobby?") == true) {
         	Meteor.call("deleteLobby", this._id);
@@ -22,4 +23,5 @@ Template.home.events({
 			var submitpassword = prompt("Please enter the password for this lobby");
 		}
 	}
+
 });
