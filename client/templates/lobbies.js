@@ -5,6 +5,7 @@ Template.lobbies.helpers({
   lobbyname: function() {
     return this.lobby.name;
   }
+
 });
 
 Template.lobbies.events({

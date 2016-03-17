@@ -3,7 +3,7 @@ if (Meteor.isClient) {
 }
 
 Template.home.created = function() {
-	this.lobbies = new ReactiveVar( Lobbies.find());
+	this.lobbies = new ReactiveVar( Lobbies.find( { privacy: 0 }));
 }
 
 Template.home.helpers({
