@@ -22,5 +22,9 @@ Meteor.methods({
 		Lobbies.update(lobbyId, {
 			$set: {name: newTitle}
 		});
+	},
+
+	searchLobbies: function(searchValue) {
+		Lobbies.find( { name: searchValue } );
 	}
 });
