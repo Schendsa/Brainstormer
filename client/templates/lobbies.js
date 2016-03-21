@@ -4,8 +4,10 @@ Template.lobbies.helpers({
 	},
   lobbyname: function() {
     return this.lobby.name;
+  },
+  description: function() {
+    return this.lobby.description;
   }
-
 });
 
 Template.lobbies.events({

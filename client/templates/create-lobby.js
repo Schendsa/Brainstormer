@@ -4,6 +4,7 @@ Template.createLobby.events({
 
 		var userId = Meteor.userId();
 		var name = event.target.name.value;
+		var description = event.target.description.value;
 		var password = event.target.password.value;
 		
 		var checkprivacy = document.getElementById("privatelobby").checked;
@@ -16,7 +17,7 @@ Template.createLobby.events({
       	 var privatelobby = 0;
       	}
 
-		Meteor.call("newLobby", userId, name, password,  privatelobby);
+		Meteor.call("newLobby", userId, name, description, password,  privatelobby);
 
 
 		Router.go('home');
