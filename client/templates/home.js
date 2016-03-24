@@ -18,11 +18,15 @@ Template.home.events({
 
 		var searchValue = event.target.search.value;
 
-		if (searchValue != "") {
-			template.lobbies.set( Lobbies.find({name: searchValue}) );
+		if (searchValue != '') {
+			template.lobbies.set( Lobbies.find( 
+				{ $or: [ { name: searchValue }, { description: searchValue } ] }
+			));
 		} else {
 			template.lobbies.set( Lobbies.find() );
-		}
+		};
+		
+		//Meteor.call('searchLobbies', searchValue);
 
 		Router.go('home');
 	}

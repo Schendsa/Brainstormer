@@ -1,7 +1,5 @@
 Meteor.methods({
-
 	newLobby: function (userId, lobbyName, lobbyDescription, lobbyPassword, privateLobby) {
-
 		Lobbies.insert({
 			userId: userId,
 			name: lobbyName,
