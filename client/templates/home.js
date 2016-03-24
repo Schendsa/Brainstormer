@@ -20,10 +20,13 @@ Template.home.events({
 
 		if (searchValue != '') {
 			template.lobbies.set( Lobbies.find( 
-				{ $or: [ { name: searchValue }, { description: searchValue } ] }
+				{
+					privacy: 0,
+					$or: [ { name: searchValue }, { description: searchValue } ]
+				}
 			));
 		} else {
-			template.lobbies.set( Lobbies.find() );
+			template.lobbies.set( Lobbies.find( { privacy: 0 } ) );
 		};
 		
 		//Meteor.call('searchLobbies', searchValue);
