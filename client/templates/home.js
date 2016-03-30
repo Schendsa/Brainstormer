@@ -3,7 +3,7 @@ if (Meteor.isClient) {
 }
 
 Template.home.created = function() {
-	this.lobbies = new ReactiveVar( Lobbies.find( { privacy: 0 }));
+	this.lobbies = new ReactiveVar( Lobbies.find( { $or: [ { privacy: 0 }, { userId: Meteor.userId() } ] } ) );
 }
 
 Template.home.helpers({
@@ -21,12 +21,14 @@ Template.home.events({
 		if (searchValue != '') {
 			template.lobbies.set( Lobbies.find( 
 				{
-					privacy: 0,
-					$or: [ { name: searchValue }, { description: searchValue } ]
+					$and: [ 
+						{ $or: [ { privacy: 0 }, { userId: Meteor.userId() } ] },
+						{ $or: [ { name: new RegExp(searchValue) }, { description: new RegExp(searchValue) }, { _id: searchValue } ] }
+					]
 				}
 			));
 		} else {
-			template.lobbies.set( Lobbies.find( { privacy: 0 } ) );
+			template.lobbies.set( Lobbies.find( { $or: [ { privacy: 0 }, { userId: Meteor.userId() } ] } ) );
 		};
 		
 		//Meteor.call('searchLobbies', searchValue);
