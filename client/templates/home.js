@@ -34,5 +34,17 @@ Template.home.events({
 		//Meteor.call('searchLobbies', searchValue);
 
 		Router.go('home');
-	}
+	},
+
+	"click .checkaccess": function () {
+        if (this.password == "") {
+            window.location = "/lobbies/" + this._id;
+        } else {
+            var submitpassword = prompt("Please enter the password for this lobby");
+
+            if (submitpassword == this.password) {
+                window.location = "/lobbies/" + this._id;
+            };
+        }
+    }
 });
