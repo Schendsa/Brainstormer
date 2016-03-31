@@ -8,7 +8,7 @@ Template.home.helpers({
 	} 
 });
 
-Template.home.events({
+Template.home.events({ 
 
 	"click .delete": function () {
 		if (confirm("Are you sure you want to delete this lobby?") == true) {
@@ -17,8 +17,8 @@ Template.home.events({
 	},
 
 	"click .checkaccess": function () {
-		if (this._id == NULL) {
-			console.log("swag");
+		if (this.password == "") {
+			window.location.href = ;
 		} else {
 			var submitpassword = prompt("Please enter the password for this lobby");
 		}

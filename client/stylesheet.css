@@ -14,7 +14,7 @@ body {
   top: 0;
   bottom: 0;
   left: 0;
-  right: 0;
+  right: 0; 
 
   font-size: 14px;
 }
@@ -155,7 +155,7 @@ header .hide-completed {
   margin-top: 10px;
 }
 
-.create-lobby-button {
+.create-lobby-button ,.show-user-lobbies {
   border: none;
   outline: none;
   background: none;
@@ -163,7 +163,7 @@ header .hide-completed {
   border-right: 1px solid #918e82;
 }
 
-.create-lobby-button a {
+.create-lobby-button a ,.show-user-lobbies a {
   text-decoration: none;
   color: black;
   padding: 10px;
