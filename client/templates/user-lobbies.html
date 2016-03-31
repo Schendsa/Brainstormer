@@ -1,0 +1,9 @@
+<template name="userlobbies">
+
+<ul>
+{{#each lobbies}}
+	<li><a href="{{pathFor 'lobbies'}}">{{name}}</a><a class="delete" href="#">Delete</a></li>
+{{/each}}
+</ul>
+
+</template>
