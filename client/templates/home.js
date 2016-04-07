@@ -23,7 +23,7 @@ Template.home.events({
 				{
 					$and: [ 
 						{ $or: [ { privacy: 0 }, { userId: Meteor.userId() } ] },
-						{ $or: [ { name: new RegExp(searchValue) }, { description: new RegExp(searchValue) }, { _id: searchValue } ] }
+						{ $or: [ { name: new RegExp(searchValue) }, { description: new RegExp(searchValue) }, { _id: searchValue }, { userName: searchValue } ] }
 					]
 				}
 			));
