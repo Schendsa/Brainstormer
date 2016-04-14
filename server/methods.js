@@ -14,6 +14,10 @@ Meteor.methods({
 		Lobbies.remove(lobbyId);
 	},
 
+	deleteIdea: function (ideaId) {
+		Ideas.remove(ideaId);
+	},
+
 	newIdea: function (ideaName, lobbyId) {
 		Ideas.insert({
 			name: ideaName,
@@ -22,12 +26,18 @@ Meteor.methods({
 	},
 
 	renameLobby: function(newTitle, lobbyId) {
-		Lobbies.update(lobbyId, {
+		Lobbies.update({_id: lobbyId}, {
 			$set: {name: newTitle}
 		});
 	},
 
 	searchLobbies: function(searchValue) {
 		Lobbies.find( { name: searchValue } );
+	},
+
+	changeInfoBlock: function(newInfoBlock, userId) {
+		Meteor.users.update({_id: userId}, {
+			$set: {infoblock: newInfoBlock}
+		});
 	}
 });

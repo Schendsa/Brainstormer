@@ -80,6 +80,15 @@ ul {
   position: relative;
 }
 
+.delete-idea {
+  float: right;
+  font-weight: bold;
+  background: none;
+  font-size: 1em;
+  border: none;
+  position: relative;
+}
+
 li {
   position: relative;
   list-style: none;
@@ -169,6 +178,7 @@ header .hide-completed {
   padding: 10px;
 }
 
-.lobby-name {
-  
+.createdby {
+  font-size: 11px;
+  color: gray;
 }

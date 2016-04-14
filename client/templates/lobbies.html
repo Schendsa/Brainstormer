@@ -13,6 +13,10 @@
 		<input type="text" name="text" placeholder="Type to add a new idea" required />
 	</form><br>
 	{{#each ideas}}
-		<li>{{name}}</li>
+		<li>
+			{{name}}
+			<a class="delete-idea">delete idea</a>
+			<input type="hidden" name="id" placeholder="{{_id}}"/>
+		</li>
 	{{/each}}
 </template>

@@ -22,6 +22,12 @@ Template.lobbies.events({
     event.target.text.value = "";
   },
 
+  "click .delete-idea": function (event) {
+    var ideaId = this.ideas._id;
+
+    Meteor.call("deleteIdea", ideaId);
+  },
+
   "click .lobby-name": function (event) {
     if (Meteor.userId() != this.lobby.userId) {
       throw new Meteor.Error("not-authorized");
@@ -29,7 +35,6 @@ Template.lobbies.events({
       var lobbytitle = document.getElementsByName("lobbytitle");
       lobbytitle[0].disabled = false;
     }
-    
   },
 
   "submit .lobby-name": function (event) {

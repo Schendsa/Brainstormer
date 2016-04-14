@@ -4,3 +4,6 @@ Meteor.publish('lobbies', function() {
 Meteor.publish('ideas', function() {
 	return Ideas.find();
 });
+Meteor.publish('users', function() {
+	return Meteor.users.find();
+});

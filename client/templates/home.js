@@ -46,5 +46,9 @@ Template.home.events({
                 window.location = "/lobbies/" + this._id;
             };
         }
+    },
+
+    "click .createdby": function () {
+		window.location = "/user/" + this.userId;
     }
 });
