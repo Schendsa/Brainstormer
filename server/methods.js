@@ -6,7 +6,8 @@ Meteor.methods({
 			userId: userId,
 			name: lobbyName,
 			password: lobbyPassword,
-			privacy: privateLobby
+			privacy: privateLobby,
+			createdAt: Date()
 		});
 	},
 
