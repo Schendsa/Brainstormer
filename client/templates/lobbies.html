@@ -1,12 +1,14 @@
 <template name="lobbies">
 	<form class="lobby-name">
-		<input type="text" name="lobbytitle" value="{{lobbyname}}" required disabled /><br>
-		<br>
-		<h4>Link voor Lobby</h4>
-		<p>http://localhost:3000/lobbies/{{this.lobby._id}}</p>
-		
-	</form><br>
-	<a class="delete" href="#">Lobby Delete</a>
+		<input type="text" name="lobbytitle" value="{{lobbyname}}" required disabled />
+	</form>
+	<a class="delete">Lobby Delete</a><br>
+	{{#if description}}
+		<p>{{description}}</p>
+	{{/if}}
+	<br>
+	<h4>Link voor Lobby</h4>
+	<p>http://localhost:3000/lobbies/{{this.lobby._id}}</p>
 	<form class="new-idea">
 		<input type="text" name="text" placeholder="Type to add a new idea" required />
 	</form><br>

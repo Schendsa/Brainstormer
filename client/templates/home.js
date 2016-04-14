@@ -2,21 +2,42 @@ if (Meteor.isClient) {
 	Meteor.subscribe("lobbies");
 }
 
+Template.home.created = function() {
+	this.lobbies = new ReactiveVar( Lobbies.find( { $or: [ { privacy: 0 }, { userId: Meteor.userId() } ] } ) );
+}
+
 Template.home.helpers({
 	lobbies: function() {
-		return Lobbies.find( { privacy: 0 } );
-	} 
+		return Template.instance().lobbies.get();
+	}
 });
 
-Template.home.events({ 
+Template.home.events({
+	"submit .search": function (event, template) {
+		event.preventDefault();
 
-	"click .delete": function () {
-		if (confirm("Are you sure you want to delete this lobby?") == true) {
-        	Meteor.call("deleteLobby", this._id);
-    	}
+		var searchValue = event.target.search.value;
+
+		if (searchValue != '') {
+			template.lobbies.set( Lobbies.find( 
+				{
+					$and: [ 
+						{ $or: [ { privacy: 0 }, { userId: Meteor.userId() } ] },
+						{ $or: [ { name: new RegExp(searchValue) }, { description: new RegExp(searchValue) }, { _id: searchValue } ] }
+					]
+				}
+			));
+		} else {
+			template.lobbies.set( Lobbies.find( { $or: [ { privacy: 0 }, { userId: Meteor.userId() } ] } ) );
+		};
+		
+		//Meteor.call('searchLobbies', searchValue);
+
+		Router.go('home');
 	},
 
 	"click .checkaccess": function () {
+
 		if (this.password == "") {
 			window.location = "/lobbies/" + this._id;
 		} else {
@@ -28,4 +49,15 @@ Template.home.events({
 		}
 	}
 
+        if (this.password == "") {
+            window.location = "/lobbies/" + this._id;
+        } else {
+            var submitpassword = prompt("Please enter the password for this lobby");
+
+
+            if (submitpassword == this.password) {
+                window.location = "/lobbies/" + this._id;
+            };
+        }
+    }
 });

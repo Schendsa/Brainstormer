@@ -1,10 +1,9 @@
 Meteor.methods({
-
-	newLobby: function (userId, lobbyName, lobbyPassword, privateLobby) {
-
+	newLobby: function (userId, lobbyName, lobbyDescription, lobbyPassword, privateLobby) {
 		Lobbies.insert({
 			userId: userId,
 			name: lobbyName,
+			description: lobbyDescription,
 			password: lobbyPassword,
 			privacy: privateLobby,
 			createdAt: Date()
@@ -26,5 +25,9 @@ Meteor.methods({
 		Lobbies.update(lobbyId, {
 			$set: {name: newTitle}
 		});
+	},
+
+	searchLobbies: function(searchValue) {
+		Lobbies.find( { name: searchValue } );
 	}
 });
