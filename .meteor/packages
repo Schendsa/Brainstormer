@@ -19,6 +19,8 @@ accounts-ui
 accounts-password
 iron:router
 accounts-github
-reactive-var
+
 standard-minifier-css
 standard-minifier-js
+
+reactive-var

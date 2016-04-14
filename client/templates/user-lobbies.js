@@ -9,3 +9,11 @@ Template.userlobbies.helpers({
 		return Lobbies.find( { userId: currentLogUser } );
 	} 
 });
+
+Template.userlobbies.events({ 
+"click .delete": function () {
+		if (confirm("Are you sure you want to delete this lobby?") == true) {
+        	Meteor.call("deleteLobby", this._id);
+    	}
+	}
+});

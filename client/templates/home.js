@@ -37,10 +37,23 @@ Template.home.events({
 	},
 
 	"click .checkaccess": function () {
+
+		if (this.password == "") {
+			window.location = "/lobbies/" + this._id;
+		} else {
+			var submitpassword = prompt("Please enter the password for this lobby");
+			
+			if (submitpassword == this.password) {
+				window.location = "/lobbies/" + this._id;
+			};
+		}
+	}
+
         if (this.password == "") {
             window.location = "/lobbies/" + this._id;
         } else {
             var submitpassword = prompt("Please enter the password for this lobby");
+
 
             if (submitpassword == this.password) {
                 window.location = "/lobbies/" + this._id;
