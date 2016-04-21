@@ -1,6 +1,3 @@
-Template.profiles.helpers({
-});
-
 Template.profiles.events({
 	"click .infoblock": function (event) {
 		if (Meteor.userId() != this.profile._id) {

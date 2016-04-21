@@ -1,6 +1,7 @@
 <template name="profiles">
 	<p>Email: {{this.profile.emails.[0].address}}</p>
 	<form class="infoblock">
-		<input type="text" name="userinfo" value="{{this.profile.infoblock}}" required disabled />
+		<label>info:</label>
+		<input class="text" type="text" name="userinfo" value="{{this.profile.infoblock}}" disabled />
 	</form><br>
 </template>

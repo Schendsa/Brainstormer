@@ -22,8 +22,8 @@ Template.lobbies.events({
     event.target.text.value = "";
   },
 
-  "click .delete-idea": function (event) {
-    var ideaId = this.ideas._id;
+  "submit .delete-idea": function (event) {
+    var ideaId = event.target.id.value;
 
     Meteor.call("deleteIdea", ideaId);
   },

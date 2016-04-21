@@ -14,9 +14,11 @@
 	</form><br>
 	{{#each ideas}}
 		<li>
-			{{name}}
-			<a class="delete-idea">delete idea</a>
-			<input type="hidden" name="id" placeholder="{{_id}}"/>
+			<form class="delete-idea">
+				{{name}}
+				<input type="hidden" name="id" value="{{_id}}"/>
+				<input type="submit" value="delete idea"/>
+			</form>
 		</li>
 	{{/each}}
 </template>

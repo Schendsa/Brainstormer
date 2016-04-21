@@ -80,15 +80,6 @@ ul {
   position: relative;
 }
 
-.delete-idea {
-  float: right;
-  font-weight: bold;
-  background: none;
-  font-size: 1em;
-  border: none;
-  position: relative;
-}
-
 li {
   position: relative;
   list-style: none;
